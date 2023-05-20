@@ -1,0 +1,149 @@
+﻿body, .input-boja, .input-boja:focus {
+    background-color: #212529;
+    color: white;
+}
+
+.check-boja {
+    background-color: #2C3034;
+}
+
+.check-boja:checked {
+    background-color: #1DCBEE;
+}
+
+.margin-b-0 {
+    margin-bottom: 0px;
+}
+
+.margin-t-10 {
+    margin-top: 10px;
+}
+
+.margin-t-20{
+    margin-top: 20px;
+}
+
+.margin-t-25 {
+    margin-top: 25px;
+}
+
+.margin-t-50 {
+    margin-top: 50px;
+}
+
+.margin-t-90 {
+    margin-top: 90px;
+}
+
+.margin-t-100 {
+    margin-top: 100px;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.color-scheme-dark {
+    color-scheme: dark;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.hover-margin-l-5:hover {
+    margin-left: 5px;
+}
+
+.hover-margin-b-2:hover {
+    margin-bottom: 2px;
+}
+
+.error-msg {
+    border: 1px solid #DB3447;
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 20px;
+    color: #DB3447;
+}
+
+.success-msg {
+    border: 1px solid #1F8657;
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 20px;
+    color: #1F8657;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.select-label {
+    background-color: #1DCBEE;
+    border-color: #1DCBEE;
+    color: black;
+}
+
+.select-style {
+    background-color: #212529;
+    border-color: #2C3034;
+    color: white;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+.div-artikal {
+    border: 1px solid #2C3034;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.div-artikal:hover {
+    background-color: #2C3034;
+}
+
+.div-artikal-naziv {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.custom-hover-colors {
+    color: #1DCBEE;
+}
+
+.custom-hover-colors:hover {
+    color: #31D2F2;
+    cursor: pointer;
+}
+
+.kolicina-prodavnica {
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    margin-top: -7px;
+}
+
+.custom-color {
+    color: #212529;
+}
+
+.width-400 {
+    width: 400px;
+}
+
+.icon-hover-danger {
+    color: #1DCBEE;
+}
+
+.icon-hover-danger:hover {
+    color: #DB3447;
+}
+
+.custom-li-color {
+    background-color: #2C3034;
+    color: white;
+}
