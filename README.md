@@ -12,7 +12,7 @@ Web aplikacija za teretanu:
 
 -Back-end: C#
 
--Front-end: cshtml, javascript i css
+-Front-end: cshtml, javascript, bootstrap i core css
 
 ------------------------------------------------------------------------------------------------------
 
