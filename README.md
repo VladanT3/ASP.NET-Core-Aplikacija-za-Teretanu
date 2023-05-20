@@ -1,4 +1,11 @@
 # ASP.NET-Core-Aplikacija-za-Teretanu
-Web aplikacija za teretanu radjenja u asp.net core framework-u i pisana u C#-u za back-end i cshtml-u, javascript-u i css-u za front-end.
-
-TeretanaBaza.sql - baza podatak koričćena za aplikaciju
+Web aplikacija za teretanu:
+-Radjenja u ASP.NET Core framework-u
+-Pravljena po MVC modelu
+-Za bazu podataka je korišćen DB first EntityFramework
+-Model je podeljen na BO (Business Objects) i automatski generisane klase pomoću EntityFramework-a
+-Back-end: C#
+-Front-end: cshtml, javascript i css
+------------------------------------------------------------------------------------------------------
+Neki od fajlova i čemu služe:
+-TeretanaBaza.sql - baza podatak koričćena za aplikaciju
