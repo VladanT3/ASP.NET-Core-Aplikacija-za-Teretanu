@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/all.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg bg-info">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="">
+                    <img src="~/img/logo.png" alt="Logo" width="50" height="50">
+                    Teretana
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Prodavnica" asp-action="Index">
+                                <i class="fa-solid fa-cart-shopping fa-lg bi d-block mx-auto mb-1"></i>
+                                Prodavnica
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @ViewData["Clanarina"]" asp-controller="Clanarina" asp-action="Index">
+                                <i class="fa-solid fa-address-card fa-lg bi d-block mx-auto mb-1"></i>
+                                Članarina
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-end">
+                    <div class="btn-group">
+                        <a type="button" class="btn btn-info" asp-controller="Nalog" asp-action="Index">
+                            <i class="fa-solid fa-user fa-lg"></i>
+                        </a>
+                        <a type="button" class="btn btn-dark me-2" asp-controller="Login" asp-action="Index">Izloguj se</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg bg-info">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="~/img/logo.png" alt="Logo" width="50" height="50">
+                    Teretana
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        @RenderBody()
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <p class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <img src="~/img/logo.png" alt="Logo" width="40" height="40">
+                </p>
+                <span class="mb-3 mb-md-0 text-muted">&copy; 2023 Teretana</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2xl"></i></a></li>
+                <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-2xl"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="~/js/all.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

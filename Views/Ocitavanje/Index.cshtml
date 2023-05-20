@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Teretana.Models.KlijentBO>
+
+@{
+    ViewData["Title"] = "Očitavanje";
+    ViewData["Ocitavanje"] = "active";
+    Layout = "~/Views/Shared/_RadnikLayout.cshtml";
+}
+<div class="row">
+    @{
+        if(ViewBag.GreskaClanarina == 1)
+        {
+            <div class='col-12 error-msg'>
+                <h3>Uneti klijent nema uplaćenu članarinu!</h3>
+            </div>
+        }
+        if(ViewBag.GreskaKlijent == 1)
+        {
+            <div class='col-12 error-msg'>
+                <h3>Ne postoji uneti klijent!</h3>
+            </div>
+        }
+    }
+    <div class="col-6">
+        <div class="row">
+            <div class="col-6">
+                <form asp-action="DodajKlijenta" method="post">
+                    <div class="input-group mb-3 margin-t-50">
+                        <input type="text" class="form-control input-boja" name="id" placeholder="Broj kartice...">
+						<input class="btn btn-outline-info" type="submit" value="Očitaj">
+					</div>
+				</form>
+			</div>
+			<div class="col-6 align-center margin-t-50">
+                <a type="button" class="btn btn-info" asp-action="BrisanjeListe">Završi dan</a>
+            </div>
+		</div>
+        <table class="table table-dark table-striped table-hover margin-t-50">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Ime i Prezime</th>
+                    <th scope="col">Datum rodjenja</th>
+                    <th scope="col">Broj telefona</th>
+                    <th scope="col" class="align-center">Detalji članarine</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                @{
+                    foreach(var klijent in Model)
+                    {
+                        <tr>
+                            <th scope="row">@klijent.KlijentId</th>
+                            <td>@klijent.ImePrezime</td>
+                            <td>@klijent.DatumRodjenja.ToShortDateString()</td>
+                            <td>@klijent.BrojTelefona</td>
+                            <td class="align-center"><a asp-action="DetaljiClanarine" asp-route-id="@klijent.KlijentId" class="link-info"><i class="fa-solid fa-arrow-right fa-lg hover-margin-l-5"></i></a></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-6">
+        <fieldset class="margin-t-50">
+            <legend>Detalji o članarini</legend>
+            <table class="table table-dark table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Naziv</th>
+                        <th scope="col">Datum početka</th>
+                        <th scope="col">Datum isteka</th>
+                        <th scope="col">Broj termina</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @{
+                        <tr>
+                            <td>@ViewBag.Naziv</td>
+                            <td>@ViewBag.DatumPocetka</td>
+                            <td>@ViewBag.DatumIsteka</td>
+                            <td>@ViewBag.BrojTermina</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+</div>

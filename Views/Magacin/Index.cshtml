@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Teretana.Models.ProizvodBO>
+
+@{
+    ViewData["Title"] = "Magacin";
+    ViewData["Magacin"] = "active";
+    Layout = "~/Views/Shared/_RadnikLayout.cshtml";
+}
+<div class="row">
+    <form asp-action="Pretraga" method="post" class="col-4">
+		<div class="input-group mb-3 margin-t-50">
+			<input type="text" class="form-control input-boja" name="pretraga" placeholder="Pretraga po nazivu...">
+			<input class="btn btn-outline-info" type="submit" value="Pretraži">
+		</div>
+    </form>
+    <div class="col-4"></div>
+    <div class="col-4">
+        <a type="button" asp-action="Unos" class="btn btn-info margin-t-50 float-end">Unesite novi proizvod</a>
+    </div>
+    <div class="col-12">
+        <table class="table table-dark table-striped table-hover table-stil">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Naziv</th>
+                    <th scope="col">Prodajna cena</th>
+                    <th scope="col">Nabavna cena</th>
+                    <th scope="col">Količina</th>
+                    <th scope="col" class="align-center">Obriši</th>
+                    <th scope="col" class="align-center">Izmeni</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                @{
+                    int i = 0;
+                    foreach(var proizvod in Model)
+                    {
+                        i++;
+                        <tr>
+                            <th scope="row">@i</th>
+                            <td>@proizvod.ProizvodId</td>
+                            <td>@proizvod.NazivProizvoda</td>
+                            <td>@proizvod.ProdajnaCena</td>
+                            <td>@proizvod.NabavnaCena</td>
+                            <td>@proizvod.Kolicina</td>
+                            <td class="align-center"><a class="link-info" asp-action="Obrisi" asp-route-id="@proizvod.ProizvodId"><i class="fa-solid fa-trash-can fa-lg hover-margin-b-2"></i></a></td>
+                            <td class="align-center"><a class="link-info" asp-action="Izmeni" asp-route-id="@proizvod.ProizvodId"><i class="fa-solid fa-pen fa-lg hover-margin-b-2"></i></a></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

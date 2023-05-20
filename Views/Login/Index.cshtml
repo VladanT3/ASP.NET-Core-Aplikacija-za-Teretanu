@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Log In";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <fieldset class="margin-t-100">
+            <legend>Ulogovanje</legend>
+            <form asp-action="Ulogovanje" method="post" class="row">
+                <div class="col-12">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control input-boja @(ViewBag.Greska == 1 ? "is-invalid" : "")" id="floatingEmail" name="inputEmail" placeholder="E-mail" value="@ViewBag.Email">
+                        <label for="floatingEmail" class="text-muted">E-mail</label>
+                        @{
+                            if(ViewBag.Greska == 1)
+                            {
+                                <div id='validacijaEmail' class='invalid-feedback'>
+                                    Email ili šifra nisu prepoznati!
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control input-boja @(ViewBag.Greska == 1 ? "is-invalid" : "")" id="inputSifra" name="inputSifra" placeholder="Šifra" value="@ViewBag.Sifra">
+                        <label for="inputSifra" class="text-muted">Šifra</label>
+                        @{
+                            if (ViewBag.Greska == 1)
+                            {
+                                <div id='validacijaSifra' class='invalid-feedback'>
+                                    Email ili šifra nisu prepoznati!
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-1"></div>
+                <div class="form-check form-switch col">
+                    <input class="form-check-input check-boja" type="checkbox" id="prikazSifre">
+                    <label class="form-check-label" for="prikazSifre">Prikaži šifru</label>
+				</div>
+                <div class="col-12 align-center margin-t-10">
+                    <input type="submit" class="btn btn-info" value="Uloguj se">
+                </div>
+                <div class="col margin-t-20">
+                    Nemate nalog? <a class="link-info" asp-controller="Signup" asp-action="Index">Napravi nalog</a>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <div class="col-4"></div>
+</div>

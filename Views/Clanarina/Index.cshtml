@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Teretana.Models.ClanarinaBO>
+
+@{
+    ViewData["Title"] = "Clanarina";
+    ViewData["Clanarina"] = "active";
+    Layout = "~/Views/Shared/_KlijentLayout.cshtml";
+}
+<div class="row">
+    @{
+        foreach(var clanarina in Model)
+        {
+            <fieldset class="col-4 margin-t-50">
+                <legend>@clanarina.NazivClanarine</legend>
+                <form asp-action="IzborClanarine" method="post">
+                <input type="hidden" asp-for="@clanarina.ClanarinaId">
+                    <p>1 Mesec</p>
+                    <div class="mb-3 row">
+                        <label asp-for="@clanarina.BrojTermina" class="col-5 col-form-label text-muted"></label>
+                        <div class="col">
+                            <input asp-for="@clanarina.BrojTermina" readonly class="form-control-plaintext input-boja bold">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label asp-for="@clanarina.CenaClanarine" class="col-5 col-form-label text-muted"></label>
+                        <div class="col">
+                            <input asp-for="@clanarina.CenaClanarine" readonly class="form-control-plaintext input-boja bold">
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <input type="submit" class="btn btn-info margin-t-20" value="Izaberi">
+                    </div>
+                </form>
+            </fieldset>
+        }
+    }
+</div>

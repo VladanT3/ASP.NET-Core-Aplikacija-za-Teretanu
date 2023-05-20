@@ -1,0 +1,112 @@
+﻿@model Teretana.Models.KlijentBO;
+
+@{
+    ViewData["Title"] = "Nalog";
+    Layout = "~/Views/Shared/_KlijentLayout.cshtml";
+}
+<form asp-action="Brisanje" method="post" class="row">
+    @{
+        if (ViewBag.UspesnaKupovina == true)
+        {
+            <div class='col-12 success-msg'>
+                <h3>Kupovina je uspešno izvršena!</h3>
+            </div>
+        }
+        if (ViewBag.UspesnaDodelaClanarine == true)
+        {
+            <div class='col-12 success-msg'>
+                <h3>Vaša članarina je uspešno dodata vašem nalogu!</h3>
+            </div>
+        }
+        if (ViewBag.UspesnaPromenaProfila == true)
+        {
+            <div class='col-12 success-msg'>
+                <h3>Vaš profil je uspešno promenjen!</h3>
+            </div>
+        }
+    }
+    <div class="col-8 margin-t-50">
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3 row">
+                    <label class="col-5 col-form-label text-muted">Ime i Prezime:</label>
+                    <div class="col">
+                        <input asp-for="ImePrezime" readonly class="form-control-plaintext input-boja bold">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3 row">
+                    <label class="col-5 col-form-label text-muted">E-mail:</label>
+                    <div class="col">
+                        <input asp-for="Email" readonly class="form-control-plaintext input-boja bold">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3 row">
+                    <label class="col-5 col-form-label text-muted">Adresa:</label>
+                    <div class="col">
+                        <input asp-for="Adresa" readonly class="form-control-plaintext input-boja bold">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3 row">
+                    <label class="col-5 col-form-label text-muted">Broj telefona:</label>
+                    <div class="col">
+                        <input asp-for="BrojTelefona" readonly class="form-control-plaintext input-boja bold">
+                    </div>
+				</div>
+			</div>
+            <div class="col-6">
+                <div class="mb-3 row">
+                    <label class="col-5 col-form-label text-muted">Datum Rodjenja:</label>
+                    <div class="col">
+                        <input asp-for="DatumRodjenja" readonly class="form-control-plaintext input-boja bold">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6"></div>
+            <div class="col-6"></div>
+            <fieldset class="col-6">
+                <legend>Podaci o članarini</legend>
+                <div class="mb-3 row">
+                    <label class="col-5 col-form-label text-muted">Naziv članarine:</label>
+                    <div class="col">
+                        <input value="@ViewBag.Clanarina" readonly class="form-control-plaintext input-boja bold">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="DatumPocetkaClanarine" class="col-5 col-form-label text-muted"></label>
+                    <div class="col">
+                        <input asp-for="DatumPocetkaClanarine" readonly class="form-control-plaintext input-boja bold">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="DatumIstekaClanarine" class="col-5 col-form-label text-muted"></label>
+                    <div class="col">
+                        <input asp-for="DatumIstekaClanarine" readonly class="form-control-plaintext input-boja bold">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="BrojTermina" class="col-5 col-form-label text-muted"></label>
+                    <div class="col">
+                        <input asp-for="BrojTermina" readonly class="form-control-plaintext input-boja bold">
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="align-center margin-t-50 mb-3">
+            <div class="col-6 mb-3 d-grid gap-2">
+                <a type="button" class="btn btn-info" asp-action="Edit">Izmena podataka</a>
+            </div>
+            <div class="col-6 mb-3"></div>
+            <div class="col-6 mb-3 d-grid gap-2">
+                <input type="submit" class="btn btn-info" value="Obriši nalog">
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,155 @@
+﻿@model IEnumerable<Teretana.Models.ProizvodBO>
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/all.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Prodavnica</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg bg-info">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="">
+                    <img src="~/img/logo.png" alt="Logo" width="50" height="50">
+                    Teretana
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" asp-controller="Prodavnica" asp-action="Index">
+                                <i class="fa-solid fa-cart-shopping fa-lg bi d-block mx-auto mb-1"></i>
+                                Prodavnica
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Clanarina" asp-action="Index">
+                                <i class="fa-solid fa-address-card fa-lg bi d-block mx-auto mb-1"></i>
+                                Članarina
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-end">
+                    <div class="btn-group dropstart">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" @(ViewBag.BrojStavki > 0 ? "" : "disabled")>
+                            <i class="fa-solid fa-basket-shopping fa-xl custom-color"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark width-400">
+                            <li><h6 class="dropdown-header">Korpa</h6></li>
+                            @{
+                                if(ViewBag.Stavke != null)
+                                {
+                                    foreach(var stavka in ViewBag.Stavke)
+                                    {
+                                        <li class="dropdown-item-text dropdown-artikal">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="float-start margin-b-0">@(stavka.Kolicina + "x " + stavka.NazivStavke)</p>
+                                                    <p class="float-end margin-b-0">@("RSD " + stavka.CenaStavke)</p>
+                                                    <br>
+                                                    <a asp-action="SmanjiKolicinu" asp-route-id="@stavka.ProizvodId"><i class='fa-solid fa-circle-minus fa-lg icon-hover-danger'></i></a>
+                                                    <a asp-action="IzbaciArtikal" asp-route-id="@stavka.ProizvodId"><i class='fa-solid fa-trash-can fa-lg icon-hover-danger'></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="dropdown-item-text">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="float-start margin-b-0">Ukupna cena</p>
+                                                <p class="float-end margin-b-0">@("RSD " + ViewBag.UkupnaCena)</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="dropdown-item-text">
+                                        <div class="row">
+                                            <div class="col btn-korpa">
+                                                <a type="button" class="btn btn-info" asp-action="Kupovanje">Kupi</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <a type="button" class="btn btn-info" asp-controller="Nalog" asp-action="Index">
+                            <i class="fa-solid fa-user fa-lg"></i>
+                        </a>
+                        <a type="button" class="btn btn-dark me-2" asp-controller="Login" asp-action="Index">Izloguj se</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg bg-info">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="~/img/logo.png" alt="Logo" width="50" height="50">
+                    Teretana
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            @{
+                foreach (var proizvod in Model)
+                {
+                    if(proizvod.Kolicina > 0)
+                    {
+                        <form asp-action="DodajUKorpu" method="post" class="col-3 padding-10">
+                            <div class="div-artikal">
+                                <img src="~/img/proizvodi/@proizvod.Slika" class="rounded mx-auto d-block" height="200px" width="188px" alt="@proizvod.NazivProizvoda">
+                                <div class="div-artikal-naziv">
+                                    <p>@proizvod.NazivProizvoda</p>
+                                    <br>
+                                    <p>RSD @proizvod.ProdajnaCena</p>
+                                </div>
+                                <div class="align-center">
+                                    <div class="row">
+                                        <div class="col-5"><i class="fa-solid fa-circle-minus fa-xl custom-hover-colors float-end" onclick="smanjiKolicinu('@proizvod.ProizvodId')"></i></div>
+                                        <div class="col-2"><input type="text" readonly class="form-control-plaintext kolicina-prodavnica" id="@proizvod.ProizvodId" name="@proizvod.ProizvodId" value="1"></div>
+                                        <div class="col-5"><i class="fa-solid fa-circle-plus fa-xl custom-hover-colors float-start" onclick="povecajKolicinu('@proizvod.ProizvodId')"></i></div>
+                                    </div>
+                                    <input type="hidden" name="idProizvoda" value="@proizvod.ProizvodId">
+                                    <input type="submit" name="dodajUKorpu" class="btn btn-info margin-t-10" value="Dodaj u korpu">
+                                </div>
+                            </div>
+                        </form>
+                    }
+                }
+            }
+        </div>
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <p class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <img src="~/img/logo.png" alt="Logo" width="40" height="40">
+                </p>
+                <span class="mb-3 mb-md-0 text-muted">&copy; 2023 Teretana</span>
+            </div>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2xl"></i></a></li>
+                <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-2xl"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="~/js/kontrolaKolicine.js"></script>
+    <script src="~/js/all.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

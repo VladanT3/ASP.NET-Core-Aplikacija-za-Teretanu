@@ -1,0 +1,83 @@
+﻿@model Teretana.Models.ProizvodBO
+
+@{
+    ViewData["Title"] = "Unos";
+    ViewData["Magacin"] = "active";
+    Layout = "~/Views/Shared/_RadnikLayout.cshtml";
+}
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <fieldset class="margin-t-50">
+            <legend>Unos i izmena proizvoda</legend>
+            <form asp-action="UnozIzmena" method="post" class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="ProizvodId" @(ViewBag.Izmena == 1 ? "readonly" : "") class="form-control input-boja @(ViewBag.GreskaID == 1 || ViewBag.Greska == 1 ? "is-invalid" : "")" placeholder="ID" value="@(ViewBag.Izmena == 1 || ViewBag.ID != null ? ViewBag.ID : "")">
+                        <label asp-for="ProizvodId" class="text-muted"></label>
+                        <span asp-validation-for="ProizvodId" class="text-danger"></span>
+                        @{
+                            if (ViewBag.GreskaID == 1)
+                            {
+                                <div class='invalid-feedback'>
+                                    Uneti ID već postoji!
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-12">
+                    <div class="form-floating mb-3">
+                        <input asp-for="NazivProizvoda" class="form-control input-boja @(ViewBag.Greska == 1 ? "is-invalid" : "")" placeholder="Naziv proizvoda">
+                        <label asp-for="NazivProizvoda" class="text-muted"></label>
+                        <span asp-validation-for="NazivProizvoda" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input asp-for="ProdajnaCena" class="form-control input-boja @(ViewBag.Greska == 1 || ViewBag.GreskaTip == 1 ? "is-invalid" : "")" placeholder="Prodajna cena">
+                        <label asp-for="ProdajnaCena" class="text-muted"></label>
+                        @{
+                            if (ViewBag.Greska == 1)
+                            {
+                                <div class='invalid-feedback'>
+                                    Morate uneti prodajnu cenu!
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input asp-for="NabavnaCena" class="form-control input-boja @(ViewBag.Greska == 1 || ViewBag.GreskaTip == 1 ? "is-invalid" : "")" placeholder="Nabavna cena">
+                        <label asp-for="NabavnaCena" class="text-muted"></label>
+                        @{
+                            if (ViewBag.Greska == 1)
+                            {
+                                <div class='invalid-feedback'>
+                                    Morate uneti nabavnu cenu!
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating mb-3">
+                        <input asp-for="Slika" class="form-control input-boja" placeholder="Naziv slike sa ekstenzijom">
+                        <label asp-for="Slika" class="text-muted"></label>
+                        <span asp-validation-for="Slika" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <input type="submit" name="submit" class="btn btn-info" value="Unesi" @(ViewBag.Izmena == 1 ? "disabled" : "")>
+                </div>
+                <div class="col-6">
+                    <input type="submit" name="submit" class="btn btn-info float-end" value="Izmeni" @(ViewBag.Izmena == 1 ? "" : "disabled")>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <div class="col-4"></div>
+</div>

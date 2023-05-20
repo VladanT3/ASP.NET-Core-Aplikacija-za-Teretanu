@@ -1,0 +1,102 @@
+﻿@model Teretana.Models.KlijentBO
+
+@{
+    ViewData["Title"] = "Sign Up";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<div class="row">
+    @{
+        if (ViewBag.ObrisanProfil == true)
+        {
+            <div class='col-12 success-msg'>
+                <h3>Vaš profil je uspešno obrisan!</h3>
+            </div>
+        }
+    }
+    <div class="col-2"></div>
+    <div class="col-8">
+        <fieldset class="margin-t-100">
+            <legend>Pravljenje naloga</legend>
+            <form asp-action="PravljenjeNaloga" method="post" class="row">
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input asp-for="Ime" class="form-control input-boja @(ViewBag.Greska == 1 ? "is-invalid" : "")" placeholder="Ime">
+                        <label asp-for="Ime" class="text-muted"></label>
+                        <span asp-validation-for="Ime" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input asp-for="Prezime" class="form-control input-boja @(ViewBag.Greska == 1 ? "is-invalid" : "")" placeholder="Prezime">
+                        <label asp-for="Prezime" class="text-muted"></label>
+                        <span asp-validation-for="Prezime" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input asp-for="Adresa" class="form-control input-boja @(ViewBag.Greska == 1 ? "is-invalid" : "")" placeholder="Adresa">
+                        <label asp-for="Adresa" class="text-muted"></label>
+                        <span asp-validation-for="Adresa" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input asp-for="BrojTelefona" class="form-control input-boja @(ViewBag.Greska == 1 ? "is-invalid" : "")" placeholder="Broj telefona">
+                        <label asp-for="BrojTelefona" class="text-muted"></label>
+                        <span asp-validation-for="BrojTelefona" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input asp-for="Email" class="form-control input-boja @(ViewBag.Greska == 1 || ViewBag.GreskaEmail == 1 ? "is-invalid" : "")" placeholder="E-mail">
+                        <label asp-for="Email" class="text-muted"></label>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        @{
+                            if (ViewBag.GreskaEmail == 1)
+                            {
+                                <div class='invalid-feedback'>
+                                    Uneti e-mail je već registrovan!
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input asp-for="Sifra" id="inputSifra" class="form-control input-boja @(ViewBag.Greska == 1 ? "is-invalid" : "")" placeholder="Šifra">
+                        <label asp-for="Sifra" class="text-muted"></label>
+                        <span asp-validation-for="Sifra" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mb-3">
+                        <label asp-for="DatumRodjenja" class="form-label"></label>
+                        <input asp-for="DatumRodjenja" class="form-control input-boja color-scheme-dark @(ViewBag.Greska == 1 ? "is-invalid" : "")">
+                        @{
+                            if (ViewBag.Greska == 1)
+                            {
+                                <div id='validacijaDatumRodj' class='invalid-feedback'>
+                                    Morate uneti datum rodjenja!
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-7"></div>
+                <div class="form-check form-switch col">
+                    <input class="form-check-input check-boja" type="checkbox" id="prikazSifre">
+                    <label class="form-check-label" for="prikazSifre">Prikaži šifru</label>
+                </div>
+                <div class="col-6 align-center">
+                    <input type="submit" class="btn btn-info" value="Napravi nalog">
+                </div>
+                <div class="col-6">
+                    <p class="float-end">
+                        Već imate nalog? <a class="link-info" asp-controller="Login" asp-action="Index">Uloguj se</a>
+                    </p>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <div class="col-2"></div>
+</div>

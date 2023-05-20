@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Teretana.Models.ProizvodBO>
+
+@{
+    ViewData["Title"] = "Naručivanje";
+    ViewData["Narucivanje"] = "active";
+    Layout = "~/Views/Shared/_RadnikLayout.cshtml";
+}
+<div class="row">
+    <div class="col-6">
+        <table class="table table-dark table-striped table-hover margin-t-50">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Naziv</th>
+                    <th scope="col">Nabavna cena</th>
+                    <th scope="col">Količina</th>
+                    <th scope="col" class="align-center">Izaberi</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                @{
+                    int i = 0;
+                    foreach(var proizvod in Model)
+                    {
+                        i++;
+                        <tr>
+                            <th scope="row">@i</th>
+                            <td>@proizvod.NazivProizvoda</td>
+                            <td>@proizvod.NabavnaCena</td>
+                            <td>@proizvod.Kolicina</td>
+                            <td class="align-center"><a class="link-info" asp-action="IzborProizvoda" asp-route-id="@proizvod.ProizvodId"><i class="fa-solid fa-arrow-right fa-lg hover-margin-l-5"></i></a></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-6">
+        <div class="margin-t-90 width-50">
+            <form asp-action="DodajStavku" method="post" class="row">
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control input-boja" name="kolicina" placeholder="Količina" required>
+                        <label class="text-muted">Količina</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <input type="submit" @(ViewBag.IzabranProizvod == true ? "" : "disabled") class="btn btn-info margin-t-10" value="Dodaj stavku">
+                </div>
+            </form>
+        </div>
+        <table class="table table-dark table-sm margin-t-50">
+            <thead>
+                <tr>
+                    <th scope="col">Naziv</th>
+                    <th scope="col">Nabavna cena</th>
+                    <th scope="col">Količina</th>
+                    <th scope="col">Cena stavke</th>
+                    <th scope="col" class="align-center">Obriši</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                @{
+                    if(ViewBag.Stavke != null)
+                    {
+                        foreach (var stavka in ViewBag.Stavke)
+                        {
+                            <tr>
+                                <td>@stavka.NazivStavke</td>
+                                <td>@stavka.CenaStavke</td>
+                                <td>@stavka.Kolicina</td>
+                                <td>@(stavka.CenaStavke * stavka.Kolicina)</td>
+                                <td class="align-center"><a class="link-info" asp-action="ObrisiStavku" asp-route-id="@stavka.ProizvodId"><i class="fa-solid fa-trash-can fa-lg hover-margin-b-2"></i></a></td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-4">
+                <form asp-action="ObrisiNarudzbenicu" method="post">
+                    <input type="submit" class="btn btn-info" value="Obriši narudžbenicu" @(ViewBag.BrojStavki > 0 ? "" : "disabled")>
+                </form>
+                <div class="form-floating mb-3 margin-t-10">
+                    <input type="text" readonly class="form-control input-boja" placeholder="Ukupna Cena" value="@ViewBag.UkupnaCena">
+                    <label class="text-muted">Ukupna Cena</label>
+                </div>
+            </div>
+        </div>
+        <form asp-action="Naruci" method="post" class="row">
+            <div class="col-8">
+                <div class="input-group mb-3 margin-t-25">
+                    <label class="input-group-text select-label">Dobavljač:</label>
+                    <select name="dobavljac" class="form-select select-style @(ViewBag.GreskaDobavljac == 1 ? "is-invalid" : "")">
+                        <option value="0">Izaberite dobavljača</option>
+                        @{
+                            foreach(var dob in ViewBag.Dobavljaci)
+                            {
+                                <option value="@dob.DobavljacId">@dob.NazivDobavljaca</option>
+                            }
+                        }
+                    </select>
+                    @{
+                        if (ViewBag.GreskaDobavljac == 1)
+                        {
+                            <div class='invalid-feedback'>
+                                Morate izabrati dobavljača!
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="d-grid gap-2 margin-t-25">
+                    <input type="submit" class="btn btn-info" value="Naruči" @(ViewBag.BrojStavki > 0 ? "" : "disabled")>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
