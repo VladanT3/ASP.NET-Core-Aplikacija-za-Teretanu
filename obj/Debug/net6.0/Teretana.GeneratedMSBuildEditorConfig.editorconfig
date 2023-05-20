@@ -1,0 +1,97 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Teretana
+build_property.RootNamespace = Teretana
+build_property.ProjectDir = C:\Users\Vladan\Desktop\IT Projects\Projects\Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja\Teretana\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Vladan\Desktop\IT Projects\Projects\Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja\Teretana
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Clanarina/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhbmFyaW5hXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Magacin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFnYWNpblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Magacin/Unos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFnYWNpblxVbm9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Nalog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmFsb2dcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Narucivanje/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmFydWNpdmFuamVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Ocitavanje/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2NpdGF2YW5qZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Prodavnica/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZGF2bmljYVxDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Prodavnica/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZGF2bmljYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Racuni/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFjdW5pXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Shared/_KlijentLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9LbGlqZW50TGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Shared/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Shared/_RadnikLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SYWRuaWtMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Signup/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnbnVwXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vladan/Desktop/IT Projects/Projects/Teretana ASP.NET Core - Projekat iz praktikuma primenjenog programiranja/Teretana/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ewuq6hqxkl
