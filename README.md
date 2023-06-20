@@ -18,4 +18,4 @@ Web aplikacija za teretanu:
 
 Neki od fajlova i čemu služe:
 
--TeretanaBaza.sql - baza podatak koričćena za aplikaciju
+-TeretanaBaza.sql - baza podatak korišćena za aplikaciju
